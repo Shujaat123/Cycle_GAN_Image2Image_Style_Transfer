@@ -163,7 +163,7 @@ with tf.Session(config=tf.ConfigProto(allow_soft_placement=True)) as sess:
 
             print("Epoch: (%2d) (%2d) [%2d / %2d]" % (ec, indicie + counter, run, num_train))
             # sample
-            if (indicie + counter) % 127 == 0:#508 == 0:
+            if (indicie + counter) % 20 == 0:#508 == 0:
                 save_dir = './progress/'
                 utils.mkdir(save_dir)
                 data_in = 255 * a_real_ipt
@@ -176,7 +176,7 @@ with tf.Session(config=tf.ConfigProto(allow_soft_placement=True)) as sess:
                 utils.im_write(img_tar, '%s/target.bmp' % save_dir)
                 utils.im_write(img_out, '%s/output.bmp' % save_dir)
                 # save
-            if (indicie + counter) % 8128 == 0:
+            if (indicie + counter) % 400 == 0:
                 save_path = saver.save(sess, dir_save + "progress", global_step=indicie + counter)
                 print('Model saved in file: % s' % save_path)
                 print("Here you can include whatever code you like .....")
